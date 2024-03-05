@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyMemo</string>
+    <string name="login">Login</string>
+    <string name="this_is_your_life_your_diary_start_journaling_today_and_capture_all_the_little_moment_in_your_life">This is your life, your diary. Start journaling today and capture all the little moment in your life</string>
+    <string name="register">Register</string>
+    <string name="welcome">Welcome</string>
 </resources>
