@@ -3,6 +3,8 @@ package com.example.mymemo;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
+import androidx.room.Insert;
 import androidx.room.PrimaryKey;
 
 @Entity(
@@ -14,7 +16,8 @@ import androidx.room.PrimaryKey;
                         childColumns = "user_id",
                         onDelete = ForeignKey.CASCADE
                 )
-        }
+        },
+        indices = {@Index("user_id")}
 )
 public class DiaryEntry {
     @PrimaryKey
@@ -41,6 +44,9 @@ public class DiaryEntry {
 
     @NonNull
     double lat;
+
+    @NonNull
+    int user_id;
 
     public DiaryEntry(int entry_id, @NonNull String title, @NonNull String text_content, @NonNull String entry_password, @NonNull String video, double lon, double lat) {
         this.entry_id = entry_id;

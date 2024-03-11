@@ -1,5 +1,6 @@
 package com.example.mymemo;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 
@@ -21,5 +22,9 @@ import androidx.room.ForeignKey;
         }
 )
 public class DiaryTag {
+    @NonNull
+    int entry_id;
 
+    @NonNull
+    int tag_id;
 }
