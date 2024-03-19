@@ -13,6 +13,27 @@
         android:theme="@style/Theme.MyMemo"
         tools:targetApi="31">
         <activity
+            android:name=".Family"
+            android:exported="false" />
+        <activity
+            android:name=".Study"
+            android:exported="false" />
+        <activity
+            android:name=".Mood"
+            android:exported="false" />
+        <activity
+            android:name=".Hobbies"
+            android:exported="false" />
+        <activity
+            android:name=".Fitness"
+            android:exported="false" />
+        <activity
+            android:name=".Meetings"
+            android:exported="false" />
+        <activity
+            android:name=".CategoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".Register"
             android:exported="false" />
         <activity
