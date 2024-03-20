@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.mymemo.R;
+
 public class Register extends AppCompatActivity {
 
     private EditText editTextFirstName;

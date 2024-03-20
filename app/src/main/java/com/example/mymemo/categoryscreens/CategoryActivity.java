@@ -1,14 +1,16 @@
-package com.example.mymemo;
+package com.example.mymemo.categoryscreens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Mood extends AppCompatActivity {
+import com.example.mymemo.R;
+
+public class CategoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mood);
+        setContentView(R.layout.activity_category);
     }
 }
