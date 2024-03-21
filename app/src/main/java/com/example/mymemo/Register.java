@@ -2,6 +2,7 @@ package com.example.mymemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,14 +31,25 @@ public class Register extends AppCompatActivity {
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         buttonRegister = findViewById(R.id.buttonRegister);
 
+        // Button to navigate to the calendar page
+        Button buttonGoToCalendar = findViewById(R.id.buttonGoToCalendar);
+        buttonGoToCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the calendar activity
+                startActivity(new Intent(Register.this, Calendar.class));
+            }
+        });
+
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerUser();
             }
         });
-
     }
+
+
 
     private void registerUser() {
         String firstName = editTextFirstName.getText().toString().trim();
