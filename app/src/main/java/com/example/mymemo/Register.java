@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 
 public class Register extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "Users";
 
     private EditText editTextFirstName;
     private EditText editTextLastName;
