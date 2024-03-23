@@ -3,6 +3,8 @@ package com.example.mymemo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.content.AsyncTaskLoader;
 
+
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,11 +14,8 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -41,10 +40,20 @@ public class Register extends AppCompatActivity {
 
         editTextFirstName = findViewById(R.id.editTextFirstName);
         editTextLastName = findViewById(R.id.editTextLastName);
-        editTextUsername = findViewById(R.id.editTextUsername);
+        editTextUsername = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         buttonRegister = findViewById(R.id.buttonRegister);
+
+        // Button to navigate to the calendar page
+        Button buttonGoToCalendar = findViewById(R.id.buttonGoToCalendar);
+        buttonGoToCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the calendar activity
+                startActivity(new Intent(Register.this, Calendar.class));
+            }
+        });
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
