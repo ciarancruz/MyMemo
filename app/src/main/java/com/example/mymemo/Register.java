@@ -1,16 +1,32 @@
 package com.example.mymemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.AsyncTaskLoader;
 
+
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.example.mymemo.R;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 
 public class Register extends AppCompatActivity {
+
+    private static final String TAG = "Users";
 
     private EditText editTextFirstName;
     private EditText editTextLastName;
@@ -32,14 +48,25 @@ public class Register extends AppCompatActivity {
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         buttonRegister = findViewById(R.id.buttonRegister);
 
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
+        // Button to navigate to the calendar page
+        Button buttonGoToCalendar = findViewById(R.id.buttonGoToCalendar);
+        buttonGoToCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerUser();
+                // Start the calendar activity
+                startActivity(new Intent(Register.this, Calendar.class));
             }
         });
 
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                testLogin();
+            }
+        });
     }
+
+
 
     private void registerUser() {
         String firstName = editTextFirstName.getText().toString().trim();
@@ -47,7 +74,6 @@ public class Register extends AppCompatActivity {
         String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
-
 
         //validation
         if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
@@ -60,11 +86,60 @@ public class Register extends AppCompatActivity {
             return;
         }
 
-        // Registration successful
-        Toast.makeText(this, "Registered user: " + username, Toast.LENGTH_SHORT).show();
+        User user = new User(firstName, lastName, username, password);
 
         // Optionally, you can save the user details to a database or file
+        InsertAsyncUser insertAsyncUser = new InsertAsyncUser();
+        insertAsyncUser.execute(user);
+
+        // Registration successful
+        Toast.makeText(this, "Registered user: " + username, Toast.LENGTH_SHORT).show();
+        getUser();
     }
+
+    class InsertAsyncUser extends AsyncTask<User, Void, Void> {
+
+        @Override
+        protected Void doInBackground(User... users) {
+
+            AppDatabase.getInstance(getApplicationContext())
+                    .userDao()
+                    .insertUser(users[0]);
+            return null;
+        }
+    }
+
+    // Get User List
+    public void getUser() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<User> userList = AppDatabase.getInstance(getApplicationContext())
+                        .userDao()
+                        .getAllUsers();
+                Log.d(TAG, "run: " + userList.toString());
+
+            }
+        });
+        thread.start();
+    }
+
+    public void testLogin() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                User user = AppDatabase.getInstance(getApplicationContext())
+                        .userDao()
+                        .getUserById(1);
+                Log.d(TAG, "run: " + user.f_name.toString());
+
+            }
+        });
+        thread.start();
+    }
+
+
+
 
 
 
