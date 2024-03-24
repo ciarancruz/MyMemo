@@ -17,4 +17,10 @@
     <string name="family">Family</string>
     <string name="hobbies">Hobbies</string>
     <string name="mood">Mood</string>
+    <string name="view">View</string>
+    <string name="meetingicon">MeetingIcon</string>
+    <string name="study_icon">study_icon</string>
+    <string name="family_icon">family_icon</string>
+    <string name="hobbie_icon">hobbie_icon</string>
+    <string name="mood_icon">mood_icon</string>
 </resources>

@@ -1,14 +1,16 @@
-package com.example.mymemo;
+package com.example.mymemo.categoryscreens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Family extends AppCompatActivity {
+import com.example.mymemo.R;
+
+public class Meetings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_family);
+        setContentView(R.layout.activity_meetings);
     }
 }

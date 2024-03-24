@@ -4,6 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fitness">
+    android:background="@color/peach_beige"
+    tools:context=".categoryscreens.Fitness">
+
+    <TextView
+        android:id="@+id/fitness_text"
+        android:layout_width="148dp"
+        android:layout_height="60dp"
+        android:text="@string/fitness"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07"
+        tools:ignore="TextSizeCheck" />
+
+    <ImageView
+        android:layout_width="246dp"
+        android:layout_height="173dp"
+        android:src="@drawable/icon_2"
+        tools:ignore="ContentDescription,MissingConstraints"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="65dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
