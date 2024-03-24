@@ -58,7 +58,7 @@ public class Register extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerUser();
+                testLogin();
             }
         });
     }
@@ -120,6 +120,21 @@ public class Register extends AppCompatActivity {
         });
         thread.start();
     }
+
+    public void testLogin() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                User user = AppDatabase.getInstance(getApplicationContext())
+                        .userDao()
+                        .getUserById(1);
+                Log.d(TAG, "run: " + user.f_name.toString());
+
+            }
+        });
+        thread.start();
+    }
+
 
 
 
