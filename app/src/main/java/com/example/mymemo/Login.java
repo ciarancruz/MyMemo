@@ -1,13 +1,18 @@
 package com.example.mymemo;
 
+import com.example.mymemo.categoryscreens.CategoryActivity;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.mymemo.categoryscreens.CategoryActivity;
 
 public class Login extends AppCompatActivity {
 
@@ -59,8 +64,10 @@ public class Login extends AppCompatActivity {
                             .userDao()
                             .getUserByEmail(email);
                     Log.d(TAG, "run: " + user.getF_name());
-                    if (email.equalsIgnoreCase(user.getEmail())) {
-
+                    if (password.equalsIgnoreCase(user.getUser_password())) {
+                        Intent intent = new Intent(Login.this, CategoryActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 }
                 else {
