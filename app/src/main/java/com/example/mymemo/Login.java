@@ -62,7 +62,6 @@ public class Login extends AppCompatActivity {
                     if (email.equalsIgnoreCase(user.getEmail())) {
 
                     }
-
                 }
                 else {
                     Log.d(TAG, "run: Could not find user!");
