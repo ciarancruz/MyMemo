@@ -51,13 +51,17 @@ public class Login extends AppCompatActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
+                // If there is a match in the database
                 if (AppDatabase.getInstance(getApplicationContext())
                         .userDao()
                         .getUserByEmail(email) != null) {
                     User user = AppDatabase.getInstance(getApplicationContext())
                             .userDao()
                             .getUserByEmail(email);
-                    Log.d(TAG, "run: " + user.f_name.toString());
+                    Log.d(TAG, "run: " + user.getF_name());
+                    if (email.equalsIgnoreCase(user.getEmail())) {
+
+                    }
 
                 }
                 else {

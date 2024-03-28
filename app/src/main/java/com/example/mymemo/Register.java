@@ -49,14 +49,14 @@ public class Register extends AppCompatActivity {
         buttonRegister = findViewById(R.id.buttonRegister);
 
         // Button to navigate to the calendar page
-        Button buttonGoToCalendar = findViewById(R.id.buttonGoToCalendar);
-        buttonGoToCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start the calendar activity
-                startActivity(new Intent(Register.this, Calendar.class));
-            }
-        });
+//        Button buttonGoToCalendar = findViewById(R.id.buttonGoToCalendar);
+//        buttonGoToCalendar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Start the calendar activity
+//                startActivity(new Intent(Register.this, Calendar.class));
+//            }
+//        });
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +95,7 @@ public class Register extends AppCompatActivity {
         // Registration successful
         Toast.makeText(this, "Registered user: " + username, Toast.LENGTH_SHORT).show();
 //        testLogin();
+        finish();
     }
 
     class InsertAsyncUser extends AsyncTask<User, Void, Void> {
